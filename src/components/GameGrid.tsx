@@ -8,7 +8,7 @@ interface Games {
 
 interface FetchGameResponse {
   count: number;
-  result: Games[];
+  results: Games[];
 }
 
 const GameGrid = () => {
@@ -18,7 +18,7 @@ const GameGrid = () => {
   useEffect(() => {
     apiClient
       .get<FetchGameResponse>("/games")
-      .then((res) => setGames(res.data.result))
+      .then((res) => setGames(res.data.results))
       .catch((err) => setError(err.message));
   }, []);
   return (
