@@ -1,5 +1,6 @@
 
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface Platform{
     id:number;
@@ -20,7 +21,7 @@ export interface Games {
   // }
 
   // removed after writing useData hook
-const useGames = () => useData<Games>('/games')
+const useGames = (selectedGenre: Genre | null) => useData<Games>('/games',{params:{genres:selectedGenre?.id}},[selectedGenre?.id])
 // {
 //     const [games, setGames] = useState<Games[]>([]);
 //     const [error, setError] = useState("");
